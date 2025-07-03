@@ -1,0 +1,14 @@
+{
+    "name": "msi/infotroop-customer",
+    "authors": [
+        {
+            "name": "yash",
+            "email": "yash.karwa@infotroop.co.in"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9",
+        "firebase/php-jwt": "^6.4",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}

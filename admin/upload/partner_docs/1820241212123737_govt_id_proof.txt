@@ -1,0 +1,18 @@
+Emails implementation for reviews 78 Hrs
+2.1) we need to send emails to customers who have not received sms from sms portal reports and need them to send main product reviews email.(it can be R1,R2,R3) 
+let me know on this we can do all 3 or just 1 email.
+2.2) For all the customers we will send emails so that even if any customer does not get sms will receive an email. 
+Will maintain reports of email sent out from systems like sms.
+We can also add one more field in the report for checking from where the customer came to the landing page email/sms. 
+We will integrate it in our current system of reviews for delivery,r1,r2,r3,r4,r5,r6.
+
+3) Report Work 64 Hrs
+3.1) Segregated Report and Report with all customers data. - 52 Hrs
+3.2) Number Lookup to find landline/mobile - 12 Hrs
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+Check if we can send reviews to customer who have good expereince even after service ticket.

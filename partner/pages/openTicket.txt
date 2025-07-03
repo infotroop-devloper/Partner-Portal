@@ -1,0 +1,112 @@
+insert into script for data fetching
+
+$(document).ready(function() {
+    var postData = {
+        op: 'fetchDeactivatedPartners',
+        serviceName: 'partners.php'
+    };
+
+    async function getData(postData) {
+        try {
+            let data = await sendRequestSecure(postData); // Wait for the AJAX call to complete
+            console.log("Received data:", data);
+            if (data.status == "success") {
+                let jsonObj = data.data;
+
+                const tableBody = document.querySelector('#kt_datatable_vertical_scroll tbody');
+                var rowHTML = '';
+                var srno = 1;
+
+                for (var i = 0; i < jsonObj.length; i++) {
+                    // Get status and map it to badge class and text
+                    let status = jsonObj[i].status || 'unknown';
+                    let badgeClass = '';
+                    let badgeText = '';
+
+                    switch (status.toLowerCase()) {
+                        case 'new':
+                            badgeClass = 'badge-light-primary';
+                            badgeText = 'New';
+                            break;
+                        case 'pending':
+                            badgeClass = 'badge-light-warning';
+                            badgeText = 'Pending';
+                            break;
+                        case 'completed':
+                            badgeClass = 'badge-light-success';
+                            badgeText = 'Completed';
+                            break;
+                        case 'closed':
+                            badgeClass = 'badge-light-dark';
+                            badgeText = 'Closed';
+                            break;
+                        case 'hold':
+                            badgeClass = 'badge-light-info';
+                            badgeText = 'Hold';
+                            break;
+                        case 'cancelled':
+                            badgeClass = 'badge-light-danger';
+                            badgeText = 'Cancelled';
+                            break;
+                        default:
+                            badgeClass = 'badge-light-secondary';
+                            badgeText = 'Unknown';
+                    }
+
+                    // Create row
+                    rowHTML += `<tr>
+							<td><span style="margin-left: 12px; font-weight:bold;">${srno++}</span></td>
+							<td>${jsonObj[i].partner_name}</td>
+							<td>${jsonObj[i].partner_name}</td>
+							<td>${jsonObj[i].partner_name}</td>
+							<td>${jsonObj[i].date}</td>
+							<td>${jsonObj[i].date}</td>
+							<td>${jsonObj[i].website_url}</td>
+							<td><span class="badge ${badgeClass} fs-7 fw-bold">${badgeText}</span></td>
+							<td class="text-center">
+								<a href="<?php echo BASE_URL;?>pages/editPartnerDetails.php?id=${jsonObj[i].id}" title="Edit note" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+									<i class="ki-duotone ki-note fs-2" style="color:#1b97ff;"><span class="path1"></span><span class="path2"></span></i>
+								</a>
+								<a href="<?php echo BASE_URL;?>pages/editPartnerDetails.php?id=${jsonObj[i].id}" title="Assign Technician" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+									<i class="ki-duotone ki-profile-user fs-2" style="color:#1b97ff;"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+								</a>
+								<a href="<?php echo BASE_URL;?>pages/editPartnerDetails.php?id=${jsonObj[i].id}" title="Edit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+									<i class="ki-duotone ki-pencil fs-2" style="color:#1b97ff;"><span class="path1"></span><span class="path2"></span></i>
+								</a>
+							</td>
+						</tr>`;
+                }
+
+                // DataTable render
+                var table = $('#kt_datatable_vertical_scroll').DataTable();
+                $('#kt_datatable_vertical_scroll tbody').append(rowHTML);
+                table.rows.add($(rowHTML)).draw();
+
+                // Optional button click logic
+                $('#kt_datatable_vertical_scroll').on('click', '.btn-action', function() {
+                    var id = $(this).data('id');
+                    alert('Action button clicked for ID: ' + id);
+                });
+
+            } else {
+                Swal.fire({
+                    text: data.message,
+                    icon: "error",
+                    buttonsStyling: !1,
+                    confirmButtonText: "Ok, got it!",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                }).then(function(e) {
+                    if (e.isConfirmed) {
+                        location.href = "<?php echo BASE_URL;?>pages/index.php";
+                    }
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    getData(postData);
+});
