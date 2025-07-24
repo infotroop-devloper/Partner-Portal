@@ -124,7 +124,7 @@ include_once './config/config.php';
                                                         target="_blank">Contact Us</a>
                                                 </div>
                                                 <div>
-                                                    <a href="">Forgot password?</a>
+                                                    <a href="partner\pages\newPassword.php">Forgot password?</a>
                                                 </div>
                                             </div>
                                         </form>

@@ -4002,8 +4002,8 @@
 						<div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
 							<!--begin::Copyright-->
 							<div class="text-gray-900 order-2 order-md-1">
-								<span class="text-muted fw-semibold me-1">2024&copy;</span>
-								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+								<span class="text-muted fw-semibold me-1"><?php echo date('Y'); ?>&copy;</span>
+								<a href="https://www.infotroop.co.in/" target="_blank" class="text-gray-800 text-hover-primary">InfoTroop IT Solutions Pvt. Ltd.</a>
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
@@ -4014,9 +4014,7 @@
 								<li class="menu-item">
 									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
 								</li>
-								<li class="menu-item">
-									<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-								</li>
+								
 							</ul>
 							<!--end::Menu-->
 						</div>

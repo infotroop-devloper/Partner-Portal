@@ -974,7 +974,7 @@ if (strpos($current_url, 'profile.php') !== false) {
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Assign Training</span>
+									<span class="menu-title">Assigned Training</span>
 								</a>
 								<a class="menu-link <?php echo $customerdactiveclass;?>" href="<?php echo BASE_URL;?>pages/comingSoon.php">
 									<span class="menu-bullet">

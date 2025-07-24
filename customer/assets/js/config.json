@@ -1,0 +1,9 @@
+{
+    "apps": {
+        "WinRAR": {
+            "name": "WinRAR",
+            "url": "https:\/\/www.win-rar.com\/fileadmin\/winrar-versions\/winrar\/winrar-x64-712.exe",
+            "silent": "\/S"
+        }
+    }
+}

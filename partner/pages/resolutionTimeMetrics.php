@@ -126,7 +126,7 @@ if($_COOKIE['uid']){
                                         <!--begin::Table body-->
                                         <tbody>
                                             <tr>
-                                                <td>Open  <span class="badge text-white bg-primary"> </span></td>
+                                                <td> <div class="text-white p-2 mx-2 card bg-primary">Open</div></td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>
@@ -146,7 +146,9 @@ if($_COOKIE['uid']){
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><span class="badge text-white bg-warning">In Process</span></td>
+                                                <td><div class="text-white p-2 mx-2 card bg-warning">
+                                                    In Process
+                                                </div></td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>
@@ -166,7 +168,7 @@ if($_COOKIE['uid']){
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><span class="badge text-white bg-success">Resolved</span></td>
+                                                <td><div class="text-white p-2 mx-2 card bg-success">Resolved</div></td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>
                                                 <td>[time]</td>

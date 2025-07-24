@@ -7,7 +7,6 @@ if($_COOKIE['uid']){
 	$_SESSION['user_type'] = $_COOKIE['user_type'];
 }
 ?>
-
 <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="page d-flex flex-row flex-column-fluid">
@@ -22,17 +21,17 @@ if($_COOKIE['uid']){
             <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-fluid">
                 <!--begin::Post-->
                 <div class="content flex-row-fluid" id="kt_content">
-                    <div class="card p-4 mb-5 mb-xl-10">
+                    <div class="card mb-5 mb-xl-10">
                         <!--begin::Card header-->
-                        <div class="card-header border-0"  data-bs-toggle="collapse"
+                        <div class="card-header border-0" data-bs-toggle="collapse"
                             data-bs-target="#kt_account_profile_details" aria-expanded="true"
                             aria-controls="kt_account_profile_details">
                             <!--begin::Card title-->
                             <div class="card-title w-100 justify-content-between">
-                                <h3 class="fw-bold">View IT Assets</h3>
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAssets">
-                                    <i class="fas fa-plus"></i> Add Assets
-                                </button>
+                                <h3 class="fw-bold">Licenses List</h3>
+                                <div>
+                                    <input type="search" class="form-control " placeholder="Search" id="search">
+                                </div>
                             </div>
                             <!--end::Card title-->
                         </div>
@@ -46,15 +45,13 @@ if($_COOKIE['uid']){
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fw-bold text-muted bg-light">
-                                            <th class="ps-4 ">assetId</th>
-                                            <th>Model Name</th>
+                                            <th class="ps-4 ">Id</th>
+                                            <th>Product Name</th>
                                             <th>Product Type</th>
                                             <th>Model Number</th>
                                             <th>Serial Number</th>
-                                            <th>Date Of Purchase</th>
-                                            <th>Warranty</th>
-                                            <th>Warranty Period</th>
-                                            <th>Warranty Proof</th>
+                                            <th>Licence Period</th>
+                                            <th>Service Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -63,35 +60,16 @@ if($_COOKIE['uid']){
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Cust 1</td>
+                                            <td>OS</td>
                                             <td>Any</td>
-                                            <td>Sarvesh</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-danger">Outdated</span></td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
+                                            <td>asda13</td>
+                                            <td>831812098190</td>
+                                            <td>[date from-to]</td>
+                                            <td><span class="badge text-white bg-danger">Expired</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Cust 2</td>
-                                            <td>SLA Breach</td>
-                                            <td>Madan</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-warning">Invalid</span></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
+                                                <button class="btn btn-sm btn-primary" title="Assign to User"
+                                                    data-bs-toggle="modal" data-bs-target="#assignUser">
+                                                    <i class="fas fa-sync-alt"></i>Renew
                                                 </button>
                                             </td>
                                         </tr>
@@ -99,17 +77,15 @@ if($_COOKIE['uid']){
                                             <td>3</td>
                                             <td>Cust 3</td>
                                             <td>Complexity</td>
-                                            <td>Aman</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-success">Valid</span></td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
+                                            <td>ds2341</td>
+                                            <td>831812098190</td>
+                                            <td>[date from-to]</td>
+                                            <td><span class="badge text-white bg-success">Active</span></td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
-                                                </button>
+                                                <!-- <button class="btn btn-sm btn-primary" title="Assign to User"
+                                                    data-bs-toggle="modal" data-bs-target="#assignUser">
+                                                    <i class="fas fa-times"></i>Deactivate
+                                                </button> -->
                                             </td>
                                         </tr>
                                     </tbody>
@@ -170,12 +146,12 @@ if($_COOKIE['uid']){
 <!--end::Scrolltop-->
 
 
-<!-- add assets Modal  -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" id="addAssets">
+<!-- Modal  -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" id="assignUser">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Add Assets</h3>
+                <h3 class="modal-title">Licence</h3>
 
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -191,12 +167,12 @@ if($_COOKIE['uid']){
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Model Name</label>
+                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Licence Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="modelName" id="modelName"
-                                    class="form-control form-control-lg form-control-solid" 
+                                <input type="text" name="licenceName" id="licenceName" readonly
+                                    class="form-control form-control-lg form-control-solid"
                                     placeholder="Enter Product Name" />
                             </div>
                             <!--end::Col-->
@@ -206,18 +182,13 @@ if($_COOKIE['uid']){
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Product Type</label>
+                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Licence Type</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <select name="product_name" id="product_name" aria-label="Select a Language"
-                                    data-control="select2" data-placeholder="Select Product Type"
-                                    class="form-select form-select-solid form-select-lg">
-                                    <option value="">Select Product Type</option>
-                                    <option data-kt-flag="flags/indonesia.svg" value="id">Bahasa Indonesia - Indonesian
-                                    </option>
-
-                                </select>
+                                <input type="tel" name="Licence Type" id="Licence Type" readonly
+                                    class="form-control form-control-lg form-control-solid"
+                                    placeholder="Licence Type" />
                             </div>
                             <!--end::Col-->
                         </div>
@@ -227,7 +198,7 @@ if($_COOKIE['uid']){
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="tel" name="model_no" id="model_no"
+                                <input type="tel" name="model_no" id="model_no" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Model Number" />
                             </div>
@@ -250,7 +221,7 @@ if($_COOKIE['uid']){
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="serial_no" id="serial_no"
+                                <input type="text" name="serial_no" id="serial_no" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Serial Number" />
                             </div>
@@ -266,7 +237,7 @@ if($_COOKIE['uid']){
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="dop" id="dop"
+                                <input type="date" name="dop" id="dop" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Date Of Purchase" />
                             </div>
@@ -275,45 +246,58 @@ if($_COOKIE['uid']){
 
                         <hr>
                         <!--end::Input group-->
-
-                        <!-- Warranty Start Date -->
                         <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                <span>Warranty Start Date</span>
-                            </label>
+                            <!--begin::Label-->
+                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Licence Key</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="wsd" id="wsd"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty Start Date" />
+                                <div class="d-flex align-items-center flex-wrap flex-sm-nowrap">
+                                    <input type="password" class="form-control flex-grow-1" data-placeholder="Enter Key"
+                                        id="licenceNo" value="Licence2741" />
+                                    <button type="button" class="btn btn-sm btn-secondary ms-sm-2 mt-2 mt-sm-0"
+                                        title="Show/Hide Licence Key" data-bs-toggle="tooltip"
+                                        onclick="togglePassword()">
+                                        <i id="toggleIcon" class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 col-form-label fw-semibold fs-6">Licence Validy</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <label for="progressInput" class="form-label fw-semibold">Validity:</label>
+                                <!-- <input type="range" id="progressInput" class="form-range mb-3" min="0" max="100" value="50" oninput="updateProgress(this.value)"> -->
+
+                                <div class="progress" style="height: 25px;">
+                                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 50%;"
+                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        50%
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p>Start date
+                                        <br>
+                                        <span>[date]</span>
+                                    </p>
+                                    <p>End date
+                                        <br>
+                                        <span>[date]</span>
+                                    </p>
+                                </div>
+                                <div class="form-check form-switch mt-4">
+                                    <label class="form-check-label" for="autorenewalSubsciption">Subscription auto-renew</label>
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="autorenewalSubsciption">
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Warranty End Date -->
-                        <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                <span>Warranty End Date</span>
-                            </label>
-                            <div class="col-lg-8 fv-row">
-                                <input type="date" name="wed" id="wed"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty End Date" />
-                            </div>
-                        </div>
-
-                        <!-- Warranty Proof -->
-                        <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Warranty Proof</label>
-                            <div class="col-lg-8 fv-row">
-                                <input type="file" name="warranty_proof" id="warranty_proof"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty Proof" />
-                            </div>
-                        </div>
-                        <!--end::Input group-->
+                        <!--end::Col-->
                     </div>
-                    <!--end::Card body-->
-                    <!--begin::Actions-->
-                    <!--end::Actions-->
                 </div>
             </div>
 
@@ -325,6 +309,61 @@ if($_COOKIE['uid']){
         </div>
     </div>
 </div>
+</div>
+<!-- footer -->
 <?php include('./includes/footer.php') ?>
 <script>
+const searchInput = document.getElementById('search');
+const table = document.getElementById('kt_datatable_vertical_scroll');
+const rows = table.querySelectorAll('tbody tr');
+
+function filterTable() {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        const matchesSearch = rowText.includes(searchTerm);
+        row.style.display = matchesSearch ? '' : 'none';
+    });
+}
+searchInput.addEventListener('input', filterTable);
+
+
+function togglePassword() {
+    const input = document.getElementById("licenceNo");
+    const icon = document.getElementById("toggleIcon");
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+
+
+function updateProgress(value) {
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = value + '%';
+    progressBar.setAttribute('aria-valuenow', value);
+    progressBar.textContent = value + '%';
+
+    // Reset color classes
+    progressBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+
+    // Set color based on value
+    if (value < 40) {
+        progressBar.classList.add('bg-danger'); // red
+    } else if (value < 70) {
+        progressBar.classList.add('bg-warning'); // yellow
+    } else {
+        progressBar.classList.add('bg-success'); // green
+    }
+}
+
+// Initialize on page load
+updateProgress(60);
 </script>

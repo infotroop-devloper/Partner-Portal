@@ -129,12 +129,10 @@ if($_COOKIE['uid']){
                                         <label for="subcriptionType" class="form-label">Subsrciption Status</label>
                                         <select class="form-select" name="subcriptionType" id="subcriptionType">
                                             <option selected hidden>Select Subsrciption Type</option>
-                                            <option value="Buisness Consultant">Buisness Consultant</option>
-                                            <option value="Registered Partner">Registered Partner</option>
-                                            <option value="Certified Partner">Certified partner</option>
-                                            <option value="Silver Partner">Silver Partner</option>
-                                            <option value="Gold Partner">Gold Partner</option>
-                                            <option value="Platinum Partner">Platinum Partner</option>
+                                            <option value="basic">Basic</option>
+                                            <option value="standard">Standard</option>
+                                            <option value="premium">Premium</option>
+                                            <option value="enterprise">Enterprise</option>
                                         </select>
                                     </div>
                                     <div class="col-md-2">

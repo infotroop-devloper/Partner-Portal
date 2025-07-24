@@ -1,6 +1,6 @@
 function sendRequestSecure(postData = {}){
     if(!localStorage.getItem('token')){
-        location.href = "../pages/index.php";
+        location.href = "index_loginpage.php";
         return;
     }
     return new Promise((resolve, reject) => {

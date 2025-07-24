@@ -24,10 +24,10 @@ if($_COOKIE['uid']){
                 <div class="content flex-row-fluid" id="kt_content">
                     <div class="row my-4">
                         <div class="col-xl-12 col-lg-7">
-                            <h3 class="fs-5 text-center">Empower yourself and your team with access to the <b>InfoTroop
+                            <p class="fs-4 text-center">Empower yourself and your team with access to the <b>InfoTroop
                                     Knowledgebase</b> – a centralized library of technical guides, how-to,
-                                troubleshooting steps, and best practices.</h3>
-                            <div class="card shadow mb-4">
+                                troubleshooting steps, and best practices.</p>
+                            <div class="card shadow my-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between">
@@ -43,6 +43,13 @@ if($_COOKIE['uid']){
                                             <option value="3">Network</option>
                                             <option value="4">Warranty</option>
                                         </select>
+                                        <div>
+                                    <a class="btn btn-success rounded-circle" title="Call Support"
+                                        data-bs-toggle="tooltip" href="tel:+91 1234567890">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </a>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <!-- Card Body -->
@@ -230,8 +237,7 @@ if($_COOKIE['uid']){
                                                 class="card card-body justify-content-center align-items-center shadow">
                                                 <h3>Contribute an Article</h3>
                                                 <p class="text-muted fs-5">Have a trick or solution that works?</p>
-                                                <form class="form-control" id="article"
-                                                    onSubmit="alert('Thank you for the valuable contribution')">
+                                                <form class="form-control" id="article" onsubmit="handleSubmit(event)">
                                                     <input class="form-control mb-4" type="text" name="articleTitle"
                                                         id="articleTitle" placeholder="Article Title" required>
                                                     <textarea class="form-control mb-4  " type="textarea" rows="3"
@@ -250,10 +256,42 @@ if($_COOKIE['uid']){
                                                             <option value="3">Article 3</option>
                                                         </select>
                                                     </div>
-                                                    <button class="btn btn-success w-50" type="sumbit">Submit
+                                                    <button class="btn btn-success mt-2" type="sumbit">Submit
                                                         review</button>
                                                 </form>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="d-flex justify-content-center align-items-center w-100">
+                                <div class="row col-md-12 mt-8 gap-10">
+                                    <div class="card col-md-8 shadow">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                User Manuals
+                                            </h3>
+                                        </div>
+                                        <p class="mt-2">A user manual, also known as an instruction manual or user
+                                            guide, is a
+                                            document that provides instructions and information on how to use a product,
+                                            service, or system. It's designed to help users understand the product's
+                                            features, functions, and how to operate it effectively, often including
+                                            troubleshooting tips and safety information. </p>
+                                    </div>
+                                    <div class="card col-md-3 shadow">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                Download Manual
+                                            </h3>
+                                        </div>
+                                        <div class="text-center my-4">
+                                        <a href="<?php echo BASE_URL;?>assets/media/img/Invoice.jpg" download
+                                            class="btn btn-success mb-4 ">
+                                            Download Manual
+                                        </a>
                                         </div>
                                     </div>
                                 </div>
@@ -316,4 +354,21 @@ const extraInput = document.querySelector("#extraInput");
 checkbox.addEventListener("change", () => {
     extraInput.disabled = !checkbox.checked;
 });
+
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const jsonObj = {
+        message: "Thanks for the Contribution!"
+    }; // Example
+    Swal.fire({
+        text: jsonObj.message ?? jsonObj.msg ?? "Thanks for the Contribution",
+        icon: "success",
+        buttonsStyling: false,
+        confirmButtonText: "Ok!",
+        customClass: {
+            confirmButton: "btn btn-primary"
+        }
+    });
+}
 </script>

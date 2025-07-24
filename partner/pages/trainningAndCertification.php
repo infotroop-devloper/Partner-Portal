@@ -40,7 +40,7 @@ if($_COOKIE['uid']){
                             <div id="kt_account_profile_details_form" class="form">
                                 <!--begin::Card body-->
                                 <iframe 
-                                    src="https://partnertrainings.infotroop.co.in"
+                                    src="https://partnertrainings.infotroop.co.in/c"
                                     frameborder="0" style="width: 100%; height: 190dvh;"></iframe>
 
                                 <!--end::Card body-->

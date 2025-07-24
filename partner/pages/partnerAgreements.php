@@ -195,7 +195,8 @@ if($_COOKIE['uid']){
                     frameborder="0" style="width: 100%; height: 70vh;"></iframe>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times"></i>Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
+                        class="fas fa-times"></i>Close</button>
                 <a class="btn btn-primary" href="login.html"><i class="fas fa-download"></i>Download PDF</a>
             </div>
         </div>

@@ -11529,11 +11529,17 @@ fieldset:disabled .btn {
 .border-left-primary {
   border-left: 0.5rem solid #4e73df !important;
 }
+.border-right-primary {
+  border-right: 0.5rem solid #4e73df !important;
+}
 .border-left-secondary {
   border-left: 0.5rem solid #858796 !important;
 }
 .border-left-success {
   border-left: 0.5rem solid #1cc88a !important;
+}
+.border-right-success {
+  border-right: 0.5rem solid #1cc88a !important;
 }
 .border-left-info {
   border-left: 0.5rem solid #36b9cc !important;
@@ -11541,8 +11547,14 @@ fieldset:disabled .btn {
 .border-left-warning {
   border-left: 0.5rem solid #f6c23e !important;
 }
+.border-right-warning {
+  border-right: 0.5rem solid #f6c23e !important;
+}
 .border-left-danger {
   border-left: 0.5rem solid #e74a3b !important;
+}
+.border-right-danger {
+  border-right: 0.5rem solid #e74a3b !important;
 }
 .border-left-light {
   border-left: 0.5rem solid #f8f9fc !important;

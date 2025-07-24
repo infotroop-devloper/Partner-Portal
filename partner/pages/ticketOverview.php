@@ -137,7 +137,6 @@ if($_COOKIE['uid']){
                                             <option>In Progress</option>
                                             <option>Resolved</option>
                                             <option>Pending Approval</option>
-                                            <option>Pending Approval</option>
                                             <option>Closed</option>
                                         </select>
                                     </div>

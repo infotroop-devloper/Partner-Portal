@@ -14,7 +14,7 @@ class DBConnect {
 		    die("Connection Error. (" . $dbConnect->connect_errno . ") " . $dbConnect->connect_error);
 		}
 		$this->DBConnect = $dbConnect;
-		$dbConnect->set_charset(CHARSET);
+		$dbConnect->set_charset("utf8mb4");
 
 	}
 

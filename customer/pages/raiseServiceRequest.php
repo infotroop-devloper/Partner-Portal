@@ -22,17 +22,21 @@ if($_COOKIE['uid']){
             <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-fluid">
                 <!--begin::Post-->
                 <div class="content flex-row-fluid" id="kt_content">
-                    <div class="card p-4 mb-5 mb-xl-10">
+                    <div class="card mb-5 mb-xl-10">
                         <!--begin::Card header-->
                         <div class="card-header border-0"  data-bs-toggle="collapse"
                             data-bs-target="#kt_account_profile_details" aria-expanded="true"
                             aria-controls="kt_account_profile_details">
                             <!--begin::Card title-->
                             <div class="card-title w-100 justify-content-between">
-                                <h3 class="fw-bold">View IT Assets</h3>
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAssets">
-                                    <i class="fas fa-plus"></i> Add Assets
-                                </button>
+                                <h3 class="fw-bold">Raise request for asset</h3>
+                                <div>
+                                    <a class="btn btn-success rounded-circle py-2 px-3" title="Call Support"
+                                        data-bs-toggle="tooltip" href="tel:+91 1234567890">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </a>
+
+                                </div>
                             </div>
                             <!--end::Card title-->
                         </div>
@@ -46,15 +50,11 @@ if($_COOKIE['uid']){
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fw-bold text-muted bg-light">
-                                            <th class="ps-4 ">assetId</th>
-                                            <th>Model Name</th>
+                                            <th class="ps-4 ">Asset Id</th>
+                                            <th>Product Name</th>
                                             <th>Product Type</th>
                                             <th>Model Number</th>
                                             <th>Serial Number</th>
-                                            <th>Date Of Purchase</th>
-                                            <th>Warranty</th>
-                                            <th>Warranty Period</th>
-                                            <th>Warranty Proof</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -63,52 +63,40 @@ if($_COOKIE['uid']){
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Cust 1</td>
-                                            <td>Any</td>
-                                            <td>Sarvesh</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-danger">Outdated</span></td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
+                                            <td>Laptop</td>
+                                            <td>Hardware</td>
+                                            <td>bfh213</td>
+                                            <td>47892659</td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
+                                                <button class="btn btn-sm btn-primary" title="Raising Request."
+                                                    data-bs-toggle="modal" data-bs-target="#assignUser">
+                                                    <i class="fas fa-ticket"></i>Raise ticket
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>Cust 2</td>
-                                            <td>SLA Breach</td>
-                                            <td>Madan</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-warning">Invalid</span></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>OS</td>
+                                            <td>Software</td>
+                                            <td>ahfb123</td>
+                                            <td>47892659</td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
+                                                <button class="btn btn-sm btn-primary" title="Raising Request."
+                                                    data-bs-toggle="modal" data-bs-target="#assignUser">
+                                                    <i class="fas fa-ticket"></i>Raise ticket
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>Cust 3</td>
-                                            <td>Complexity</td>
-                                            <td>Aman</td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
-                                            <td><span class="badge text-white bg-success">Valid</span></td>
-                                            <td>[date]</td>
-                                            <td>[date]</td>
+                                            <td>Firewall</td>
+                                            <td>Others</td>
+                                            <td>vnasdn245</td>
+                                            <td>47892659</td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" title="Edit"
-                                                    data-bs-toggle="tooltip">
-                                                    <i class="fas fa-pen"></i>Edit
+                                                <button class="btn btn-sm btn-primary" title="Raising Request."
+                                                    data-bs-toggle="modal" data-bs-target="#assignUser">
+                                                    <i class="fas fa-ticket"></i>Raise ticket
                                                 </button>
                                             </td>
                                         </tr>
@@ -124,21 +112,14 @@ if($_COOKIE['uid']){
             </div>
 
 
-
-
-
-            <!--begin::Footer-->
+            <!-- Footer bar -->
             <div class="footer pb-4 d-flex flex-lg-column" id="kt_footer">
-                <!--begin::Container-->
                 <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
-                    <!--begin::Copyright-->
                     <div class="text-gray-900 order-2 order-md-1">
                         <span class="text-muted fw-semibold me-1"><?php echo date('Y'); ?>&copy;</span>
                         <a href="https://www.infotroop.co.in/" target="_blank"
                             class="text-gray-800 text-hover-primary">InfoTroop IT Solutions Pvt. Ltd.</a>
                     </div>
-                    <!--end::Copyright-->
-                    <!--begin::Menu-->
                     <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
                         <li class="menu-item">
                             <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
@@ -148,15 +129,10 @@ if($_COOKIE['uid']){
                         </li>
 
                     </ul>
-                    <!--end::Menu-->
                 </div>
-                <!--end::Container-->
             </div>
-            <!--end::Footer-->
         </div>
-        <!--end::Wrapper-->
     </div>
-    <!--end::Page-->
 </div>
 <!--end::Root-->
 <!--end::Main-->
@@ -171,15 +147,15 @@ if($_COOKIE['uid']){
 
 
 <!-- add assets Modal  -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" id="addAssets">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" id="assignUser">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Add Assets</h3>
+                <h3 class="modal-title">Raise Service Request</h3>
 
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                    <i class="fas fa-times"><span class="path1"></span><span class="path2"></span></i>
                 </div>
                 <!--end::Close-->
             </div>
@@ -191,13 +167,13 @@ if($_COOKIE['uid']){
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Model Name</label>
+                            <label class="col-lg-4 col-form-label  fw-semibold fs-6">Product Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="modelName" id="modelName"
-                                    class="form-control form-control-lg form-control-solid" 
-                                    placeholder="Enter Product Name" />
+                                <input type="text" name="productName" id="productName" readonly
+                                    class="form-control form-control-lg form-control-solid"
+                                    placeholder="Product Name" />
                             </div>
                             <!--end::Col-->
                         </div>
@@ -206,28 +182,23 @@ if($_COOKIE['uid']){
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Product Type</label>
+                            <label class="col-lg-4 col-form-label fw-semibold fs-6">Product Type</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <select name="product_name" id="product_name" aria-label="Select a Language"
-                                    data-control="select2" data-placeholder="Select Product Type"
-                                    class="form-select form-select-solid form-select-lg">
-                                    <option value="">Select Product Type</option>
-                                    <option data-kt-flag="flags/indonesia.svg" value="id">Bahasa Indonesia - Indonesian
-                                    </option>
-
-                                </select>
+                                <input type="tel" name="Product Type" id="Product Type" readonly
+                                    class="form-control form-control-lg form-control-solid"
+                                    placeholder="Product Type" />
                             </div>
                             <!--end::Col-->
                         </div>
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Model Number</label>
+                            <label class="col-lg-4 col-form-label fw-semibold fs-6">Model Number</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="tel" name="model_no" id="model_no"
+                                <input type="tel" name="model_no" id="model_no" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Model Number" />
                             </div>
@@ -238,7 +209,7 @@ if($_COOKIE['uid']){
                         <div class="row mb-6">
                             <!--begin::Label-->
                             <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                <span class="required">Serial Number</span>
+                                <span>Serial Number</span>
                                 <span class="ms-1" data-bs-toggle="tooltip" title="Serial Number">
                                     <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                         <span class="path1"></span>
@@ -250,7 +221,7 @@ if($_COOKIE['uid']){
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="serial_no" id="serial_no"
+                                <input type="text" name="serial_no" id="serial_no" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Serial Number" />
                             </div>
@@ -266,7 +237,7 @@ if($_COOKIE['uid']){
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="dop" id="dop"
+                                <input type="date" name="dop" id="dop" readonly
                                     class="form-control form-control-lg form-control-solid"
                                     placeholder="Date Of Purchase" />
                             </div>
@@ -275,56 +246,86 @@ if($_COOKIE['uid']){
 
                         <hr>
                         <!--end::Input group-->
-
-                        <!-- Warranty Start Date -->
-                        <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                <span>Warranty Start Date</span>
-                            </label>
-                            <div class="col-lg-8 fv-row">
-                                <input type="date" name="wsd" id="wsd"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty Start Date" />
+                        <form id="raiseServiceRequest">
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Issue Category</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                    <select class="form-select" data-placeholder="Select an option" name="assigned_user"
+                                        id="assigned_user">
+                                        <option seletced hidden>Select Type</option>
+                                        <option value="Hardware repair">Hardware repair</option>
+                                        <option value="Software Issue">Software Issue</option>
+                                        <option value="Installation">Installation</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <!--end::Col-->
                             </div>
-                        </div>
 
-                        <!-- Warranty End Date -->
-                        <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                <span>Warranty End Date</span>
-                            </label>
-                            <div class="col-lg-8 fv-row">
-                                <input type="date" name="wed" id="wed"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty End Date" />
-                            </div>
-                        </div>
 
-                        <!-- Warranty Proof -->
-                        <div class="row mb-6">
-                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Warranty Proof</label>
-                            <div class="col-lg-8 fv-row">
-                                <input type="file" name="warranty_proof" id="warranty_proof"
-                                    class="form-control form-control-lg form-control-solid"
-                                    placeholder="Warranty Proof" />
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                    <span>Note (If any)</span>
+                                </label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="Enter Detailed note (if Any)"></textarea>
+                                </div>
+                                <!--end::Col-->
                             </div>
-                        </div>
-                        <!--end::Input group-->
+
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                    <span class="required">Upload Proof</span>
+                                    <span class="ms-1" data-bs-toggle="tooltip"
+                                        title="Upload Proof of the Issue- photo or log file">
+                                        <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span>
+                                </label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                    <input type="file" class="form-control" name="" id="">
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                        </form>
                     </div>
-                    <!--end::Card body-->
-                    <!--begin::Actions-->
-                    <!--end::Actions-->
                 </div>
             </div>
 
             <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary" onclick="resetRaiseServiceForm()">Clear</button>
                 <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">Close</button>
                 <button type="submit" onClick="saveMyProfile()" class="btn btn-primary"
-                    id="kt_account_profile_details_submit">Save Changes</button>
+                    id="kt_account_profile_details_submit">Raise Ticket</button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Footer file -->
 <?php include('./includes/footer.php') ?>
+
+
 <script>
+
+function resetRaiseServiceForm() {
+    // Reset the form fields
+    document.getElementById('raiseServiceRequest').reset();
+
+    // Reset Select2 dropdown
+    $('#assigned_user').val(null).trigger('change');
+}
 </script>
