@@ -47,10 +47,12 @@ try {
         include_once $serviceName;
     }
 } catch (Exception $ex) {
-	$final_res = '{ "status":"error @ root",
-                    "message":' . $ex.message . ',
-                    "Errorcode":"err500",
-                    "data":{}}';
+    $final_res = '{ 
+        "status":"error @ root",
+        "message":"' . $ex->getMessage() . '",
+        "Errorcode":"err500",
+        "data":{}
+    }';
 } finally {
     session_destroy();
     $json = $final_res;

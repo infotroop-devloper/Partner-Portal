@@ -2872,7 +2872,7 @@ if($_COOKIE['uid']){
 								`+jsonObj[i].email_id+`
 							</td>
 							<td>
-								`+jsonObj[i].full_name+` / `+jsonObj[i].email_id+` / `+jsonObj[i].mobile_no+` / `+jsonObj[i].phone_no+`
+								`+jsonObj[i].email_id+` <br> `+jsonObj[i].mobile_no+` <br> `+jsonObj[i].phone_no+`
 							</td>
 							<td>
 								`+jsonObj[i].website_url+`

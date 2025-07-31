@@ -151,7 +151,7 @@ if($_COOKIE['uid']){
 								<span style="margin-left: 12px;">`+srno+`</span>
 							</td>
 							<td>
-								<a href="#" class="">`+jsonObj[i].partner_uniqueid+`</a>
+								`+jsonObj[i].partner_uniqueid+`
 							</td>
 							<td>
 								`+jsonObj[i].partner_name+`
@@ -163,7 +163,7 @@ if($_COOKIE['uid']){
 								`+jsonObj[i].website_url+`
 							</td>
 							<td>
-								 <br> `+jsonObj[i].email_id+` <br> `+jsonObj[i].mobile_no+` 
+								 <br> `+jsonObj[i].email_id+` <br> `+jsonObj[i].mobile_no+` <br> `+jsonObj[i].phone_no+` 
 							</td>
 							<td>
 								`+jsonObj[i].job_role+`

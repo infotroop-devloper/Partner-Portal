@@ -206,7 +206,7 @@ hr {
   color: inherit;
   border: 0;
   border-top: var(--bs-border-width) solid;
-  opacity: .5;
+  opacity: .2;
 }
 .h1,
 .h2,
@@ -537,6 +537,7 @@ progress {
 [hidden] {
   display: none !important;
 }
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
@@ -5750,6 +5751,7 @@ fieldset:disabled .btn {
     overflow-y: auto;
   }
 }
+
 .tooltip {
   --bs-tooltip-zindex: 1080;
   --bs-tooltip-max-width: 200px;
@@ -7720,6 +7722,9 @@ fieldset:disabled .btn {
 }
 .w-25 {
   width: 25% !important;
+}
+.w-35 {
+  width: 35% !important;
 }
 .w-50 {
   width: 50% !important;
@@ -50578,6 +50583,10 @@ router-outlet {
   .print-content-only .toolbar {
     display: none !important;
   }
+}
+.footer{
+  box-shadow: var(--bs-box-shadow-lg);
+  padding-top: 1.5rem;
 }
 body {
   background-color: var(--bs-page-bg);

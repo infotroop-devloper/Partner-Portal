@@ -47,10 +47,10 @@ switch ($op) {
         $is_subsidiary = $_POST['is_subsidiary'];
         $subsidary_company_name = $_POST['subsidary_company_name'];
         $sub_company_address = $_POST['sub_company_address'];
-        $sub_city = $_POST['sub_city'];
-        $sub_state = $_POST['sub_state'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
         $sub_pcountry = $_POST['sub_pcountry'];
-        $sub_zipcode = $_POST['sub_zipcode'];
+        $zipcode = $_POST['zipcode'];
         $total_revenue = $_POST['total_revenue'];
         $active_customer = $_POST['active_customer'];
         $head_count = $_POST['head_count'];
@@ -70,18 +70,18 @@ switch ($op) {
         $added_date = date("Y-m-d h:i:s");
 
         $qry->execUpdateQuery(" INSERT INTO infotroop.masters_partners (country, primary_business_model, business_type, partner_name, local_company_name, company_head, website_url, 
-                email_id, phone_no, pan, gst, company_address, primary_company_city, primary_company_state, primary_company_country, primary_company_zipcode, is_subsidiary, subsidary_company_name, sub_company_address, sub_city,
-                sub_state, sub_country, sub_zipcode, total_revenue, active_customer, head_count, sales_count, tech_count, salutation, fname, lname, job_title, job_role, contact_email_id, contact_phone_no, contact_mobile_no,
+                email_id, phone_no, pan, gst, company_address, primary_company_city, primary_company_state, primary_company_country, primary_company_zipcode, is_subsidiary, subsidary_company_name, sub_company_address, city,
+                state, country, zipcode, total_revenue, active_customer, head_count, sales_count, tech_count, salutation, fname, lname, job_title, job_role, contact_email_id, contact_phone_no, contact_mobile_no,
                 contact_address, agree_tnc, last_agree_tnc, `status`, added_date)
                 VALUES ('$country', '$primary_business_model', '$business_type', '$partner_name', '$local_company_name', '$company_head', '$website_url',
-                '$email_id', '$phone_no', '$pan', '$gst', '$company_address', '$city', '$state', '$pcountry', '$zipcode', '$is_subsidiary', '$subsidary_company_name', '$sub_company_address', '$sub_city', '$sub_state', '$sub_pcountry',
-                '$sub_zipcode', '$total_revenue', '$active_customer', '$head_count', '$sales_count', '$tech_count', '$salutation', '$fname', '$lname', '$job_title', '$job_role', '$contact_email_id', '$contact_phone_no', '$contact_mobile_no',
+                '$email_id', '$phone_no', '$pan', '$gst', '$company_address', '$city', '$state', '$pcountry', '$zipcode', '$is_subsidiary', '$subsidary_company_name', '$sub_company_address', '$city', '$state', '$sub_pcountry',
+                '$zipcode', '$total_revenue', '$active_customer', '$head_count', '$sales_count', '$tech_count', '$salutation', '$fname', '$lname', '$job_title', '$job_role', '$contact_email_id', '$contact_phone_no', '$contact_mobile_no',
                 '$contact_address', '$agree_tnc', '$last_agree_tnc', 'New', '$added_date') ");
         
         $lastrow = $qry->execSelectQuery(" select * from masters_partners order by id desc limit 1 ");
         $partner_id = $lastrow[0]['id'];
         $id = $lastrow[0]['id'];
-        $partner_uniqueid = sprintf("ITSP%04d", $id);
+        $partner_uniqueid = sprintf("ITISPL%04d", $id);
 
         if($business_type=="Independent Business Consultant"){
             $govt_id_proof = '';

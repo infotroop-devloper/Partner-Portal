@@ -201,6 +201,11 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
+.footer{
+  box-shadow: var(--bs-box-shadow-lg);
+  padding-top: 1.5rem;
+  background-color: white;
+}
 
 hr {
   margin: 1rem auto;

@@ -610,7 +610,8 @@ if($_COOKIE['uid']){
                                                                 class="fs-2hx fw-bold text-gray-800 me-2 lh-1">3</span>
                                                         </div>
                                                         <div class="col-auto">
-                                                            <i class="fas fa-file-invoice-dollar fs-3x text-gray-300"></i>
+                                                            <i
+                                                                class="fas fa-file-invoice-dollar fs-3x text-gray-300"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -679,41 +680,43 @@ if($_COOKIE['uid']){
                         </div>
 
 
-                        <!--begin::Footer-->
-                        <div class="footer pb-4 d-flex flex-lg-column" id="kt_footer">
-                            <!--begin::Container-->
-                            <div
-                                class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
-                                <!--begin::Copyright-->
-                                <div class="text-gray-900 order-2 order-md-1">
-                                    <span class="text-muted fw-semibold me-1"><?php echo date('Y'); ?>&copy;</span>
-                                    <a href="https://www.infotroop.co.in/" target="_blank"
-                                        class="text-gray-800 text-hover-primary">InfoTroop IT Solutions Pvt. Ltd.</a>
-                                </div>
-                                <!--end::Copyright-->
-                                <!--begin::Menu-->
-                                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                                    <li class="menu-item">
-                                        <a href="https://www.infotroop.co.in/" target="_blank"
-                                            class="menu-link px-2">About</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="https://www.infotroop.co.in/contact" target="_blank"
-                                            class="menu-link px-2">Support</a>
-                                    </li>
 
-                                </ul>
-                                <!--end::Menu-->
-                            </div>
-                            <!--end::Container-->
-                        </div>
-                        <!--end::Footer-->
                     </div>
-                    <!--end::Wrapper-->
+
                 </div>
                 <!--end::Page-->
+
             </div>
             <!--end::Root-->
+                                <!--end::Wrapper-->
+                <!--begin::Footer-->
+                <div class="footer shadow-lg pb-4 d-flex flex-lg-column" id="kt_footer">
+                    <!--begin::Container-->
+                    <div
+                        class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-gray-900 order-2 order-md-1">
+                            <span class="text-muted fw-semibold me-1"><?php echo date('Y'); ?>&copy;</span>
+                            <a href="https://www.infotroop.co.in/" target="_blank"
+                                class="text-gray-800 text-hover-primary">InfoTroop IT Solutions Pvt. Ltd.</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Menu-->
+                        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                            <li class="menu-item">
+                                <a href="https://www.infotroop.co.in/" target="_blank" class="menu-link px-2">About</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://www.infotroop.co.in/contact" target="_blank"
+                                    class="menu-link px-2">Support</a>
+                            </li>
+
+                        </ul>
+                        <!--end::Menu-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
             <!--end::Main-->
             <!--begin::Scrolltop-->
             <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">

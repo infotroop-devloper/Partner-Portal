@@ -1,6 +1,13 @@
-<!--- HEADER --->
-<?php include('./includes/header.php');?>
 
+<!--- HEADER --->
+<?php include('./includes/header.php');
+if($_COOKIE['uid']){
+	$_SESSION['uid'] = $_COOKIE['uid'];
+	$_SESSION['firstname'] = $_COOKIE['firstname'];
+	$_SESSION['email'] = $_COOKIE['email'];
+	$_SESSION['user_type'] = $_COOKIE['user_type'];
+}
+?>
 <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
     <div class="page d-flex flex-row flex-column-fluid">				
@@ -33,12 +40,6 @@
                             
                                 <div class="card-body border-top p-9">
                                     <h3 class="stepper-title">Partner Application</h3>
-                                    <div class="row mb-6">
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
-                                        <div class="col-lg-8 fv-row">
-                                            <input type="text" name="country" id="country"  class="form-control form-control-lg form-control-solid" />
-                                        </div>
-                                    </div>
                                     <div class="row mb-6">
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Primary Business Model</label>
                                         <div class="col-lg-8 fv-row">
@@ -90,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-6">
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Company Head</label>
+                                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Company website</label>
                                         <div class="col-lg-8 fv-row">
                                             <input type="text" name="website_url" id="website_url" class="form-control form-control-lg form-control-solid" />
                                         </div>
@@ -129,25 +130,48 @@
                                     <div class="row mb-6">
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6">City</label>
                                         <div class="col-lg-8 fv-row">
-                                            <input type="text" name="city" id="city" class="form-control form-control-lg form-control-solid" />
+                                            <input type="text" name="primary_company_city" id="primary_company_city" class="form-control form-control-lg form-control-solid" />
                                         </div>
                                     </div>
                                     <div class="row mb-6">
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6">State</label>
                                         <div class="col-lg-8 fv-row">
-                                            <input type="text" name="state" id="state" class="form-control form-control-lg form-control-solid" />
+                                            <input type="text" name="primary_company_state" id="primary_company_state" class="form-control form-control-lg form-control-solid" />
                                         </div>
                                     </div>
                                     <div class="row mb-6">
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
                                         <div class="col-lg-8 fv-row">
-                                            <input type="text" name="pcountry" id="pcountry" class="form-control form-control-lg form-control-solid" />
+                                            <select class="form-select form-select-solid" 
+                                                        name="primary_company_country" id="primary_company_country">
+                                                        <option value="India">India</option>
+                                                        <option value="Philippines">Philippines</option>
+                                                        <option value="Vietnam">Vietnam</option>
+                                                        <option value="Indonesia">Indonesia</option>
+                                                        <option value="Malaysia">Malaysia</option>
+                                                        <option value="Thailand">Thailand</option>
+                                                        <option value="UAE">United Arab Emirates (UAE)</option>
+                                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                                        <option value="South Africa">South Africa</option>
+                                                        <option value="Kenya">Kenya</option>
+                                                        <option value="United Kingdom">United Kingdom</option>
+                                                        <option value="Germany">Germany</option>
+                                                        <option value="Poland">Poland</option>
+                                                        <option value="Netherlands">Netherlands</option>
+                                                        <option value="United States">United States</option>
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="Brazil">Brazil</option>
+                                                        <option value="Mexico">Mexico</option>
+                                                        <option value="Australia">Australia</option>
+                                                        <option value="New Zealand">New Zealand</option>
+                                                    </select>
+                                            <!-- <input type="text" name="primary_company_country" id="primary_company_country" class="form-control form-control-lg form-control-solid" /> -->
                                         </div>
                                     </div>
                                     <div class="row mb-6">
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Zipcode</label>
                                         <div class="col-lg-8 fv-row">
-                                            <input type="text" name="zipcode" id="zipcode" class="form-control form-control-lg form-control-solid" />
+                                            <input type="text" name="primary_company_zipcode" id="primary_company_zipcode" class="form-control form-control-lg form-control-solid" />
                                         </div>
                                     </div>
                                     
@@ -383,7 +407,6 @@
                     let jsonObj = data.data;
                     if(jsonObj.length>0){
                         jsonObj = jsonObj[0];
-                        $("#country").val(jsonObj.country);
                         $("#primary_business_model").val(jsonObj.primary_business_model);
                         $("#business_type").val(jsonObj.business_type);
                         $("#partner_name").val(jsonObj.partner_name);
@@ -394,23 +417,11 @@
                         $("#pan").val(jsonObj.pan);
                         $("#gst").val(jsonObj.gst);
                         $("#company_address").val(jsonObj.company_address);
-                        $("#city").val(jsonObj.city);
-                        $("#state").val(jsonObj.state);
-                        $("#pcountry").val(jsonObj.pcountry);
-                        $("#zipcode").val(jsonObj.zipcode);
+                        $("#primary_company_city").val(jsonObj.primary_company_city);
+                        $("#primary_company_state").val(jsonObj.primary_company_state);
+                        $("#primary_company_country").val(jsonObj.primary_company_country);
+                        $("#primary_company_zipcode").val(jsonObj.primary_company_zipcode);
                         $("#website_url").val(jsonObj.website_url);
-                        if(jsonObj.is_subsidiary=='on'){
-                            $('#is_subsidiary').prop('checked', true);
-                            $("#is_subsidiary_div").css("display","block");
-                        }else{
-                            $("#is_subsidiary_div").css("display","none");
-                        }
-                        $("#subsidary_company_name").val(jsonObj.subsidary_company_name);
-                        $("#sub_company_address").val(jsonObj.sub_company_address);
-                        $("#sub_city").val(jsonObj.sub_city);
-                        $("#sub_state").val(jsonObj.sub_state);
-                        $("#sub_pcountry").val(jsonObj.sub_pcountry);
-                        $("#sub_zipcode").val(jsonObj.sub_zipcode);
                         $("#total_revenue").val(jsonObj.total_revenue);
                         $("#active_customer").val(jsonObj.active_customer);
                         $("#head_count").val(jsonObj.head_count);
@@ -561,9 +572,6 @@
             op:'savePartnerDetails',
 			serviceName:'partners.php',
             id:"<?php echo $_GET['id'];?>",
-            country:$("#country").val(),
-            service_type:$("#service_type").val(),
-            sub_service_type:$("#sub_service_type").val(),
             partner_name:$("#partner_name").val(),
             local_company_name:$("#local_company_name").val(),
             company_head:$("#company_head").val(),
@@ -572,21 +580,26 @@
             website_url:$("#website_url").val(),
             gst:$("#gst").val(),
             pan:$("#pan").val(),
-            is_subsidiary:$("#is_subsidiary").val(),
-            subsidary_company_name:$("#subsidary_company_name").val(),
-            address_line1:$("#address_line1").val(),
-            address_line2:$("#address_line2").val(),
-            city:$("#city").val(),
-            state:$("#state").val(),
-            pcountry:$("#pcountry").val(),
-            zipcode:$("#zipcode").val(),
+            total_revenue:$("#total_revenue").val(),
+            head_count:$("#head_count").val(),
+            sales_count:$("#sales_count").val(),
+            active_customer:$("#active_customer").val(),
+            tech_count:$("#tech_count").val(),
+            company_address:$("#company_address").val(),
+            primary_company_city:$("#primary_company_city").val(),
+            primary_company_state:$("#primary_company_state").val(),
+            primary_company_country:$("#primary_company_country").val(),
+            salutation:$("#salutation").val(),
+            primary_company_zipcode:$("#primary_company_zipcode").val(),
+            lname:$("#lname").val(),
+            fname:$("#fname").val(),
             primary_full_name:$("#primary_full_name").val(),
-            primary_corporate_email:$("#primary_corporate_email").val(),
-            primary_phone:$("#primary_phone").val(),
-            primary_mobile:$("#primary_mobile").val(),
-            primary_job_function:$("#primary_job_function").val(),
-            primary_job_function_role:$("#primary_job_function_role").val(),
-            status:$("#status").val()
+            contact_email_id:$("#contact_email_id").val(),
+            contact_phone_no:$("#contact_phone_no").val(),
+            contact_mobile_no:$("#contact_mobile_no").val(),
+            job_title:$("#job_title").val(),
+            job_role:$("#job_role").val(),
+            status:$("#status").val(),
         };
 
         async function savedata(postData) {

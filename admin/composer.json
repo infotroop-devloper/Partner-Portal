@@ -2,8 +2,8 @@
     "name": "msi/infotroop-customer",
     "authors": [
         {
-            "name": "yash",
-            "email": "yash.karwa@infotroop.co.in"
+            "name": "omkar",
+            "email": "omkar.kulkarni@infotroop.co.in"
         }
     ],
     "require": {

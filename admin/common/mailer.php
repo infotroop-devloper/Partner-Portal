@@ -9,42 +9,73 @@ include_once('../config/app_config.php');
 
 function mailTo($data) {
     $mlog = new ssloger();
-    $mail = new PHPMailer;
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = $data['smtp_host'];  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = $data['username'];                 // SMTP username
-    $mail->Password = $data['password'];                           // SMTP password
-    $mail->SMTPSecure = $data['encryption'];                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = $data['smtp_port'];                                    // TCP port to connect to
+    
+    try {
+        $mail = new PHPMailer(true);
+        
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = $data['smtp_host'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $data['username'];
+        $mail->Password = $data['password'];
+        $mail->SMTPSecure = $data['encryption']; // Should be 'tls' or 'ssl'
+        $mail->Port = $data['smtp_port'];
+        
+        // Enable verbose debug output (remove in production)
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = function($str, $level) use ($mlog) {
+            $mlog->lwrite("SMTP Debug Level $level: $str");
+        };
 
-    $mail->From = $data['username'];
-    $mail->FromName = 'Mailer';
-    $mail->addAddress($data['recepitant']);     // Add a recipient
+        // Recipients
+        $mail->setFrom($data['username'], 'Infotroop Team');
+        $mail->addAddress($data['recepitant']);
+        $mail->addReplyTo($data['username'], 'Infotroop Team');
 
-    /*$mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');*/
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $data['Subject'];
+        
+        // Check if template file exists
+        if (!file_exists($data['template'])) {
+            $mlog->lwrite("Template file not found: " . $data['template']);
+            return "Template file not found: " . $data['template'];
+        }
+        
+        $htmlContent = file_get_contents($data['template']);
+        
+        if ($htmlContent === false) {
+            $mlog->lwrite("Failed to read template file: " . $data['template']);
+            return "Failed to read template file";
+        }
+        
+        // Replace placeholders
+        $htmlContent = str_replace(
+            $data['mapping_string'],
+            $data['mapping_data'],
+            $htmlContent
+        );
+        
+        $mail->Body = $htmlContent;
+        
+        // Alternative plain text body
+        $mail->AltBody = strip_tags($htmlContent);
 
-    $mail->WordWrap = 50;                                 
-    /*$mail->addAttachment('/var/tmp/file.tar.gz');         
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');  */  
-    $mail->isHTML(true);                                  
-    $htmlContent = file_get_contents($data['template']); // Ensure the path is correct
-
-    $htmlContent = str_replace(
-        $data['mapping_string'],
-        $data['mapping_data'],
-        $htmlContent
-    );
-    $mail->Subject = $data['Subject'];
-    $mail->Body    = $htmlContent;
-
-    if (!$mail->send()) {
-        $mlog->lwrite(" ******* Mailer Failed *******");
-        $mlog->lwrite($mail->ErrorInfo);
-        return $mail->ErrorInfo; // send failed returning error details 
-    } else {
-        $mlog->lwrite("Email sent to:" . $to_adr);
-        return true;  // send successful
+        // Send email
+        $result = $mail->send();
+        
+        if ($result) {
+            $mlog->lwrite("Email sent successfully to: " . $data['recepitant']);
+            return true;
+        } else {
+            $mlog->lwrite("Email send failed - no exception thrown");
+            return "Email send failed";
+        }
+        
+    } catch (Exception $e) {
+        $errorMsg = "Mailer Error: " . $e->getMessage();
+        $mlog->lwrite($errorMsg);
+        return $errorMsg;
     }
 }

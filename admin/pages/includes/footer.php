@@ -50,7 +50,7 @@
 		};
 		$.ajax({
 			type: 'POST',
-			url: "<?php echo BASE_URL;?>/api/rootapi.php",
+			url: "<?php echo BASE_URL;?>api/rootapi.php",
 			data: myKeyVals,
 			dataType: "json",
 			headers: {"Authorization": "Bearer " + localStorage.getItem('token')},

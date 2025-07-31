@@ -134,7 +134,10 @@ body {
                 <img id="notFoundImage" src="../assets/media/img/no-found.png" alt="No results found" style="display: none;  width: auto; margin: 10px auto;" />
             </div>
 
-            <!--begin::Footer-->
+
+        </div>
+    </div>
+                <!--begin::Footer-->
             <div class="footer pb-4 d-flex flex-lg-column" id="kt_footer">
                 <!--begin::Container-->
                 <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
@@ -159,8 +162,6 @@ body {
                 </div>
                 <!--end::Container-->
             </div>
-        </div>
-    </div>
 </div>
 
 

@@ -90,9 +90,8 @@ if($_COOKIE['uid']){
                             </form>
                         </div>
                     </div>
-
-
-
+                </div>
+            </div>
                     <!--begin::Footer-->
                     <div class="footer pb-4 d-flex flex-lg-column mb-0" id="kt_footer">
                         <!--begin::Container-->
@@ -120,9 +119,6 @@ if($_COOKIE['uid']){
                         </div>
                         <!--end::Container-->
                     </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

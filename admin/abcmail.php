@@ -19,7 +19,7 @@ $mail->Port = 587;                                    // TCP port to connect to
 
 $mail->From = 'noreply@infotroop.co.in';
 $mail->FromName = 'Mailer';
-$mail->addAddress('yashcrm101@gmail.com', 'Yash');     // Add a recipient
+$mail->addAddress('omkar.kulkarni@infotroop.co.in', 'omkar');     // Add a recipient
 
 /*$mail->addCC('cc@example.com');
 $mail->addBCC('bcc@example.com');*/

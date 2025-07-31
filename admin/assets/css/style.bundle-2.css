@@ -50545,6 +50545,10 @@ router-outlet {
 body {
   background-color: var(--bs-page-bg);
 }
+.footer{
+  box-shadow: var(--bs-box-shadow-lg);
+  padding-top: 1.5rem;
+}
 .text-page-bg {
   color: #fff;
 }

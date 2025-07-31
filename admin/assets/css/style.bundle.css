@@ -201,6 +201,10 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
+.footer{
+  box-shadow: var(--bs-box-shadow-lg);
+  padding-top: 1.5rem;
+}
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -27476,7 +27480,6 @@ fieldset:disabled .btn {
   --bs-text-gray-800: #b5b7c8;
   --bs-text-gray-900: #f5f5f5;
   --bs-border-color: #26272f;
-  --bs-border-dashed-color: #363843;
   --bs-component-active-color: #ffffff;
   --bs-component-active-bg: #006ae6;
   --bs-component-hover-color: #006ae6;
